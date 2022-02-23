@@ -1,7 +1,19 @@
-import '../styles/globals.css'
+import 'nextra-theme-docs/style.css';
+// import { ThemeProvider, Global, convert, createReset, themes } from '@storybook/theming';
+import { DocsContainer } from '../blocks';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+const Wrapper = ({ children }) => <div style={{ border: '5px solid red' }}>{children}</div>;
+
+export default function Nextra({ Component, pageProps }) {
+  return (
+    <Wrapper>
+      <DocsContainer>
+        <Component {...pageProps} />
+      </DocsContainer>
+      {/* <ThemeProvider theme={convert(themes.light)}>
+        <Global styles={createReset} />
+        <Component {...pageProps} />
+      </ThemeProvider>{' '} */}
+    </Wrapper>
+  );
 }
-
-export default MyApp

@@ -8,12 +8,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@storybook/addons": "latest",
+    "@storybook/components": "latest",
+    "@storybook/react": "latest",
+    "@storybook/testing-react": "^1.2.3",
+    "@storybook/theming": "latest",
+    "@testing-library/dom": "^8.11.3",
+    "@testing-library/user-event": "^13.5.0",
+    "formik": "^2.2.9",
     "next": "12.0.8",
+    "nextra": "^1.1.0",
+    "nextra-theme-docs": "^1.2.6",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@types/react": "^17.0.39",
     "eslint": "8.7.0",
-    "eslint-config-next": "12.0.8"
+    "eslint-config-next": "12.0.8",
+    "typescript": "^4.5.5"
   }
 }
