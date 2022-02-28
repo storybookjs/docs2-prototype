@@ -10,7 +10,7 @@ import { Story } from '@storybook/store';
 import { DocsContext, DocsContextProps } from './DocsContext';
 import { SourceContext, SourceContextProps } from './SourceContainer';
 import { CURRENT_SELECTION } from './types';
-import { SourceType } from '../shared';
+import { SourceType } from './shared';
 
 import { enhanceSource } from './enhanceSource';
 import { useStories } from './useStory';

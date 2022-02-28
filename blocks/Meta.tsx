@@ -1,15 +1,15 @@
-import { FC, useContext } from 'react';
-import { BaseAnnotations } from '@storybook/csf';
+import { FC, useContext, useEffect } from 'react';
+import { ComponentAnnotations } from '@storybook/csf';
 import { DocsContext } from './DocsContext';
 
 interface MetaProps {
-  of: BaseAnnotations;
+  of: ComponentAnnotations;
 }
 
 export const Meta: FC<MetaProps> = ({ of }) => {
   const { meta, setMeta } = useContext(DocsContext);
-  if (!meta) {
-    setMeta(of);
-  }
+  useEffect(() => {
+    if (!meta) setMeta(of);
+  }, [of]);
   return null;
 };

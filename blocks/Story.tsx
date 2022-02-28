@@ -1,32 +1,39 @@
-import { FunctionComponent, ElementType, useContext, useState } from 'react';
+import { FunctionComponent, useContext, useEffect, useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { resetComponents, Story as PureStory, StorySkeleton } from '@storybook/components';
-import { StoryAnnotationsOrFn } from '@storybook/csf';
+import { ComponentAnnotations, StoryAnnotationsOrFn } from '@storybook/csf';
 import { composeStory } from '@storybook/testing-react';
 
 import { DocsContext } from './DocsContext';
+import { StoryFn } from '@storybook/react';
 
 export interface StoryProps {
   of: StoryAnnotationsOrFn;
+  meta: ComponentAnnotations;
   height?: string;
 }
 
-export const Story: FunctionComponent<StoryProps> = ({ of, ...rest }) => {
-  // console.log({ of });
-  const { meta } = useContext(DocsContext);
-  const [composed, setComposed] = useState<ElementType>();
-  if (!composed && meta) {
-    setComposed(composeStory(of as any, meta as any));
-  }
-  // const composed = ;
+export const Story: FunctionComponent<StoryProps> = ({ of, meta: manualMeta, ...rest }) => {
+  const { meta: contextMeta } = useContext(DocsContext);
+  const meta = manualMeta || contextMeta;
+  const [composed, setComposed] = useState<StoryFn>();
+  // if (!composed && meta) {
+  //   const x = composeStory(of as any, meta as any);
+  //   setComposed(() => x);
+  // }
+
   // console.log({ composed, of, meta });
+  useEffect(() => {
+    if (meta) {
+      setComposed(() => composeStory(of as any, meta as any));
+    }
+  }, [meta, of]);
 
   if (!composed) return <StorySkeleton />;
 
-  console.log({ composed });
   return (
     <MDXProvider components={resetComponents}>
-      <PureStory id="foo" inline storyFn={() => composed} {...rest} />
+      <PureStory id="foo" inline storyFn={composed} {...rest} />
     </MDXProvider>
   );
 };

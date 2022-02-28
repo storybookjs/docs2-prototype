@@ -7,7 +7,7 @@ const Wrapper = ({ children }) => <div style={{ border: '5px solid red' }}>{chil
 export default function Nextra({ Component, pageProps }) {
   return (
     <Wrapper>
-      <DocsContainer>
+      <DocsContainer context={{ projectAnnotations: {} }}>
         <Component {...pageProps} />
       </DocsContainer>
       {/* <ThemeProvider theme={convert(themes.light)}>

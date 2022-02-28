@@ -1,11 +1,12 @@
 import { Context, createContext } from 'react';
 import { window as globalWindow } from 'global';
 
-import { AnyFramework, ComponentAnnotations } from '@storybook/csf';
+import { AnyFramework, ComponentAnnotations, ProjectAnnotations } from '@storybook/csf';
 
 export interface DocsContextProps<T extends AnyFramework = AnyFramework> {
   meta: ComponentAnnotations | undefined;
   setMeta: (ComponentAnnotations) => void;
+  projectAnnotations: ProjectAnnotations | undefined;
 }
 
 // We add DocsContext to window. The reason is that in case DocsContext.ts is
