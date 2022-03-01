@@ -4,24 +4,24 @@ import {
   resetComponents,
   Preview as PurePreview,
   PreviewProps as PurePreviewProps,
-  PreviewSkeleton,
 } from '@storybook/components';
-import { DocsContext } from './DocsContext';
-// import { SourceContext } from './SourceContainer';
-// import { SourceState } from './Source';
-
-// export { SourceState };
+import { SourceContext } from './SourceContainer';
+import { SourceState } from './Source';
 
 type CanvasProps = PurePreviewProps & {
-  //   withSource?: SourceState;
+  withSource?: SourceState;
   mdxSource?: string;
 };
 
 export const Canvas: FC<CanvasProps> = (props) => {
   const { children, ...previewProps } = props;
+  const sourceContext = useContext(SourceContext);
+
   return (
     <MDXProvider components={resetComponents}>
-      <PurePreview {...previewProps}>{children}</PurePreview>
+      <PurePreview isLoading {...previewProps}>
+        {children}
+      </PurePreview>
     </MDXProvider>
   );
 };

@@ -17,12 +17,6 @@ export const Story: FunctionComponent<StoryProps> = ({ of, meta: manualMeta, ...
   const { meta: contextMeta } = useContext(DocsContext);
   const meta = manualMeta || contextMeta;
   const [composed, setComposed] = useState<StoryFn>();
-  // if (!composed && meta) {
-  //   const x = composeStory(of as any, meta as any);
-  //   setComposed(() => x);
-  // }
-
-  // console.log({ composed, of, meta });
   useEffect(() => {
     if (meta) {
       setComposed(() => composeStory(of as any, meta as any));
