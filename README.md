@@ -7,6 +7,20 @@ This prototype illustrates two new key ideas that we're planning for Storybook D
 
 This is throwaway code that's for feedback only. It's not intended to be consumed or built upon.
 
+## Running the example
+
+To run the example:
+
+```sh
+yarn && yarn dev
+```
+
+This is using server-rendered react components. The source is visible in:
+
+- Portable docs: [index.mdx](./pages/index.mdx)
+- Standard CSF: [AccountForm.stories.tsx](./components/AccountForm.stories.tsx)
+- Setup code: [\_app.js](./pages/_app.js)
+
 ## Reuse stories outside of Storybook
 
 In Docs 2.0, you can reuse stories outside of Storybook.
