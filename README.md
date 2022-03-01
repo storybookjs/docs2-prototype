@@ -58,7 +58,7 @@ In Storybook Docs 1.0, this workflow was not possible. The MDX implementation wa
 
 In Docs 2.0, we're redesigning the system so that we're using portable standard MDX that's supported by many modern CMS's like NextJS, Gatsby, and Docusaurus. So you can build your docs out in Storybook, reuse them in an external documentation system.
 
-The key change is that you no longer define stories in MDX. Instead, you define them in [Component Story Format (CSF)](https://storybook.js.org/docs/react/api/csf), and them reference them from MDX. Here's what that looks like in code:
+The key change is that you no longer define stories in MDX. Instead, you define them in [Component Story Format (CSF)](https://storybook.js.org/docs/react/api/csf), and reference them from MDX. Here's what that looks like in code:
 
 ```js
 import { Meta, Story, Canvas } from '@storybook/blocks';
