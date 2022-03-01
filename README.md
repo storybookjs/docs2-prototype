@@ -1,5 +1,7 @@
 # Storybook Docs 2.0 Prototype
 
+<img src="./screenshot.png" />
+
 This prototype illustrates two new key ideas that we're planning for Storybook Docs 2.0:
 
 - Reuse stories outside of storybook
